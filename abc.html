@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Melt & Mingle</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff8dc;
+            color: #333;
+        }
+        header {
+            background-color: #ff5733;
+            padding: 30px;
+            text-align: center;
+            color: white;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 40px;
+        }
+        header p {
+            font-size: 18px;
+            margin-top: 5px;
+        }
+        nav {
+            margin: 20px;
+            text-align: center;
+            background-color: #ffcc00;
+            padding: 10px;
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #2c3e50;
+            font-size: 18px;
+        }
+        section {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+            background-color: #fff2e6;
+        }
+        .about, .menu, .contact {
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            width: 30%;
+        }
+        .menu ul, .reviews ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .menu ul li, .reviews ul li {
+            margin: 10px 0;
+        }
+        footer {
+            background-color: #ff5733;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+        }
+        img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+        .reviews {
+            margin: 20px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 100%;
+            text-align: center;
+        }
+        .review-form input, .review-form textarea {
+            display: block;
+            width: 80%;
+            margin: 10px auto;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+        .review-form button {
+            background-color: #ff5733;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Melt & Mingle</h1>
+        <p>QUALITY IS OUR TOP PRIORITY</p>
+    </header>
+
+    <nav>
+        <a href="#about">About</a>
+        <a href="#menu">Menu</a>
+        <a href="#contact">Contact</a>
+        <a href="#reviews">Reviews</a>
+    </nav>
+
+    <section>
+        <div class="about" id="about">
+            <h2>About Us</h2>
+            <img src="https://source.unsplash.com/300x200/?cafe,coffee" alt="Cafe Image">
+            <p>Melt & Mingle is a cozy spot that offers a wide variety of snacks, sandwiches, and beverages. Whether you're looking to relax, work, or socialize, we have the perfect ambiance for you. Come enjoy our freshly prepared meals and drinks!</p>
+        </div>
+
+        <div class="menu" id="menu">
+            <h2>Our Menu</h2>
+            <img src="https://source.unsplash.com/300x200/?food,snacks" alt="Food Image">
+            <h3>Snacks and Starters</h3>
+            <ul>
+                <li>VEG MOMO - ₹50.00</li>
+                <li>CHICKEN MOMO - ₹60.00</li>
+                <li>FRIED MOMO - ₹80.00</li>
+                <li>PAN FRIED MOMO - ₹100.00</li>
+            </ul>
+            <h3>Grilled Sandwiches</h3>
+            <ul>
+                <li>VEGGIE DELIGHT - ₹45.00</li>
+                <li>GOLDEN CORN TREAT - ₹55.00</li>
+                <li>PANEER BLISS - ₹70.00</li>
+                <li>CHICKEN CLASSIC - ₹70.00</li>
+                <li>CHEESY CHICKEN FEAST - ₹100.00</li>
+            </ul>
+            <h3>Beverages</h3>
+            <ul>
+                <li>TEA - ₹10.00</li>
+                <li>COFFEE - ₹25.00</li>
+            </ul>
+        </div>
+
+        <div class="contact" id="contact">
+            <h2>Contact Us</h2>
+            <img src="https://source.unsplash.com/300x200/?maps,location" alt="Map Image">
+            <p>Location: A. K. Mukherjee Road, Ward No-2, Near Noapara State General Hospital</p>
+            <p>Phone: 8617206464</p>
+            <p>Email: melt.mingle@gmail.com</p>
+            <p>Hours: Mon-Sat 11:30 AM - 11:30 PM</p>
+            <a href="https://maps.app.goo.gl/AQ4uteoqP82ar3z9A" target="_blank">Find us on Google Maps</a>
+        </div>
+    </section>
+
+    <section class="reviews" id="reviews">
+        <h2>Customer Reviews</h2>
+        <ul id="review-list">
+            <li>John Doe: "Amazing food and great atmosphere!"</li>
+            <li>Jane Smith: "The best grilled sandwiches in town!"</li>
+        </ul>
+
+        <div class="review-form">
+            <h3>Leave a Review</h3>
+            <input type="text" id="reviewer-name" placeholder="Your Name">
+            <textarea id="review-text" placeholder="Write your review"></textarea>
+            <button onclick="addReview()">Submit</button>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Melt & Mingle. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function addReview() {
+            var name = document.getElementById("reviewer-name").value;
+            var review = document.getElementById("review-text").value;
+            if (name && review) {
+                var reviewList = document.getElementById("review-list");
+                var newReview = document.createElement("li");
+                newReview.textContent = name + ": \"" + review + "\"";
+                reviewList.appendChild(newReview);
+                document.getElementById("reviewer-name").value = '';
+                document.getElementById("review-text").value = '';
+            } else {
+                alert("Please fill in both fields.");
+            }
+        }
+    </script>
+</body>
+</html>
